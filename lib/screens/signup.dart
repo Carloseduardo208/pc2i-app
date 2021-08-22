@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class singupscreen extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   @override
-  _singupscreenState createState() => _singupscreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _singupscreenState extends State<singupscreen> {
+class _SignupScreenState extends State<SignupScreen> {
   bool isChecked = false;
 
   @override

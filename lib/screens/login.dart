@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pc2i_app/components/button.dart';
 import 'package:pc2i_app/components/input.dart';
-import 'package:pc2i_app/Screens/sing_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -78,10 +77,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             Text('Não possui uma conta?'),
                             TextButton(
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => singupscreen()));
+                                Navigator.pushReplacementNamed(
+                                    context, '/signup');
                               },
                               child: Text('Cadastre-se'),
                             ),
