@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'screens/login.dart';
-import 'screens/splash.dart';
+import 'package:pc2i_app/screens/login.dart';
+import 'package:pc2i_app/screens/new_culture.dart';
+import 'package:pc2i_app/screens/signup.dart';
+import 'package:pc2i_app/screens/splash.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: SplashScreen(),
       initialRoute: '/splash',
       routes: {
-        '/login': (context) => LoginScreen(),
         '/splash': (context) => SplashScreen(),
+        '/login': (context) => LoginScreen(),
+        '/signup': (context) => SignupScreen(),
+        '/new-culture': (context) => NewCultureScreen(),
       },
     ),
   );

@@ -1,8 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Button extends StatelessWidget {
-  const Button({Key? key}) : super(key: key);
+class Button extends StatefulWidget {
+  final String text;
+  final IconData icon;
+  final bool rotate;
+  final void Function() action;
+
+  const Button({
+    Key? key,
+    required this.text,
+    required this.icon,
+    this.rotate = false,
+    required this.action,
+  }) : super(key: key);
+
+  @override
+  _ButtonState createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: Duration(seconds: 1),
+    vsync: this,
+  )..repeat(reverse: false);
+
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.linear,
+  );
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +58,7 @@ class Button extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
           shadowColor: MaterialStateProperty.all(Colors.transparent),
         ),
-        onPressed: () {},
+        onPressed: widget.action,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 7,
@@ -36,17 +68,25 @@ class Button extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Entrar',
+                widget.text,
                 style: GoogleFonts.quicksand(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              Icon(
-                Icons.login_outlined,
-                color: Colors.white,
-              ),
+              widget.rotate
+                  ? RotationTransition(
+                      turns: _animation,
+                      child: Icon(
+                        widget.icon,
+                        color: Colors.white,
+                      ),
+                    )
+                  : Icon(
+                      widget.icon,
+                      color: Colors.white,
+                    ),
             ],
           ),
         ),
