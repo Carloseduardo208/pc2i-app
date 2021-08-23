@@ -54,7 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         Input(
                           icon: Icon(Icons.person_outline),
                           placeholder: 'Nome de usuário ou e-mail',
-                          action: TextInputAction.next,
                         ),
                         SizedBox(height: 15),
                         Input(
@@ -64,7 +63,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           isSecret: true,
                         ),
                         SizedBox(height: 35),
-                        Button(),
+                        Button(
+                          icon: Icons.login_outlined,
+                          text: 'Entrar',
+                          action: () {},
+                        ),
                         SizedBox(height: 25),
                         Divider(
                           height: 0.5,
