@@ -4,14 +4,16 @@ class Input extends StatefulWidget {
   final Icon icon;
   final String placeholder;
   final TextInputAction action;
+  final TextInputType? keyboardType;
   final bool isSecret;
 
   Input({
     Key? key,
     required this.icon,
     required this.placeholder,
+    this.keyboardType,
     this.isSecret = false,
-    required this.action,
+    this.action = TextInputAction.next,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,6 @@ class Input extends StatefulWidget {
 
 class _InputState extends State<Input> {
   bool _obscureText = true;
-  String? _password;
   Icon _eyeIcon = Icon(Icons.visibility_outlined);
 
   void togglePasswordVisibility() {
@@ -36,7 +37,7 @@ class _InputState extends State<Input> {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: widget.isSecret ? _obscureText : false,
-      onSaved: (value) => _password = value,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         hintText: widget.placeholder,
         icon: widget.icon,
