@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pc2i_app/screens/login.dart';
+import 'package:pc2i_app/screens/new_culture.dart';
 import 'package:pc2i_app/screens/signup.dart';
 import 'package:pc2i_app/screens/splash.dart';
 
@@ -11,6 +12,7 @@ void main() {
         '/splash': (context) => SplashScreen(),
         '/login': (context) => LoginScreen(),
         '/signup': (context) => SignupScreen(),
+        '/new-culture': (context) => NewCultureScreen(),
       },
     ),
   );
