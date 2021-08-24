@@ -43,11 +43,6 @@ class _NewCultureScreenState extends State<NewCultureScreen> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_outlined),
-            color: Color(0xffffffff),
-            onPressed: () {},
-          ),
           title: Text(
             'Adicionar Cultura',
             style: TextStyle(color: Color(0xffffffff)),
